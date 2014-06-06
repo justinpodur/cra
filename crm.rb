@@ -1,3 +1,6 @@
+require_relative "contact"
+require_relative "rolodex"
+
 class CRM
 
 	def initialize(name)
@@ -51,33 +54,6 @@ class CRM
 		end
 	end
 
-	class Contact
-		def initialize(first_name,last_name,email,note)
-			@first_name=first_name
-			@last_name=last_name
-			@email=email
-			@note=note
-		end
-
-		attr_accessor :first_name,:last_name,:email,:note
-
-	end
-
-	class Rolodex
-		def initialize
-			@contacts = []
-			@id = 1000
-		end
-		
-		attr_reader :contacts
-
-		def add_contact(contact)
-			contact.id=@id
-			@contacts << contact
-		end
-	end
-
-
 	def add_new_contact
 		puts "Enter First Name: "
 		first_name=gets.chomp
@@ -108,8 +84,8 @@ class CRM
 
 end
 
-a_crm_app = CRM.new("Bitmaker Labs CRM")
-a_crm_app.main_menu
-puts "Welcome to #{a_crm_app.name}"
+# a_crm_app = CRM.new("Bitmaker Labs CRM")
+# a_crm_app.main_menu
+# puts "Welcome to #{a_crm_app.name}"
 
 CRM.run("my CRM")
