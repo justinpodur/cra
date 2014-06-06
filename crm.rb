@@ -87,6 +87,7 @@ class CRM
 		print "Enter note: "
 		note=gets.chomp
 		contact=Contact.new(first_name,last_name,email,note)
+		@rolodex.add_contact(contact)
 	end
 
 	# def print_modify_menu
