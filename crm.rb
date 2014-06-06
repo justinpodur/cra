@@ -27,9 +27,14 @@ class CRM
 	end
 
 	def main_menu
-		print_main_menu
-		user_selected = gets.to_i
-		call_option(user_selected)
+		while true
+			print_main_menu
+			user_selected = gets.to_i
+			if user_selected >=7 
+				break
+			end
+			call_option(user_selected)
+		end
 	end
 
 	def call_option(user_selected)
@@ -84,55 +89,74 @@ class CRM
 		contact=Contact.new(first_name,last_name,email,note)
 	end
 
-	def print_modify_menu
-		puts "Enter attribute to modify:"
-		puts "[1] ID"
-		puts "[2] First Name"
-		puts "[3] Last Name"
-		puts "[4] Email Address"
-		puts "[5] Note"
-		puts "[6] exit"
-	end
+	# def print_modify_menu
+	# 	puts "Enter attribute to modify:"
+	# 	puts "[1] ID"
+	# 	puts "[2] First Name"
+	# 	puts "[3] Last Name"
+	# 	puts "[4] Email Address"
+	# 	puts "[5] Note"
+	# 	puts "[6] exit"
+	# end
 
-	def modify_option(user_selected)
+
+
+	def modify_option
+		
 		puts "What is the ID of the user you seek?"
+		
 		selected_id = gets.to_i
-		@rolodex.find_contact(selected_id)
+		
+		puts @rolodex.find_contact(selected_id)
 
-		case user_selected
-			when 1
-				#modify ID
-			when 2
-				#modify First Name
-			when 3
-				#modify Last Name
-			when 4
-				#modify email address
-			when 5
-				#modify note
-			when 6
-				puts "goodbye"
-				return
-			else
-				puts "Invalid option. Try again."
-				print_modify_menu
-		end
+		puts "What is the new first name?"
+		first_name = gets.chomp
+		
+		puts "What's the new last name?"
+		last_name = gets.chomp
+		
+		puts "What's the new email?"
+		email = gets.chomp
+		
+		puts "What's the new note?"
+		note = gets.chomp
+
+		modified_contact = Contact.new(first_name,last_name,email,note)
+
+		@rolodex.edit_contact(selected_id,modified_contact)
+
+		# case user_selected
+		# 	when 1
+		# 		#modify ID
+		# 	when 2
+		# 		#modify First Name
+		# 	when 3
+		# 		#modify Last Name
+		# 	when 4
+		# 		#modify email address
+		# 	when 5
+		# 		#modify note
+		# 	when 6
+		# 		puts "goodbye"
+		# 		return
+		# 	else
+		# 		puts "Invalid option. Try again."
+		# 		print_modify_menu
+		# end
 	end
 
 	def modify_existing_contact
 	
-		print_modify_menu
-		user_selected = gets.to_i
+		# print_modify_menu
+		# user_selected = gets.to_i
 		
 		if confirm
 			puts "here we go with modification"
-			modify_option(user_selected)
+			modify_option
 		else
 			puts "Going back to main menu"
 			main_menu
 		end
-		
-		modify_option(user_selected)
 
 	end
 
