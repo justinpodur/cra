@@ -1,10 +1,10 @@
 class CRM
 
 	def initialize(name)
-		@name=name
+		self.name=name
 	end
 
-	attr_reader :name
+	attr_accessor :name
 
 	def print_main_menu
 		puts "[1] Add new contact"
