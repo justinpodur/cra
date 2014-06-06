@@ -13,8 +13,10 @@
 
 DOING
 
-    As a user, if 'add' is typed, I am prompted to give my 'first name', 'last name', 'email' and 'notes'.
+
 
 DONE
 
     As a user, I am presented with a prompt to 'add', 'modify', 'display all', 'display contact', display attribute', 'delete' and 'exit'.
+
+    As a user, if 'add' is typed, I am prompted to give my 'first name', 'last name', 'email' and 'notes'.
