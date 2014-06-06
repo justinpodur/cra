@@ -67,7 +67,43 @@ class CRM
 	end
 
 	def modify_existing_contact
-		puts "modifying"
+		
+		def print_modify_menu
+			puts "Enter attribute to modify:"
+			puts "[1] ID"
+			puts "[2] First Name"
+			puts "[3] Last Name"
+			puts "[4] Email Address"
+			puts "[5] Note"
+			puts "[6] exit"
+		end
+
+		print_modify_menu
+		user_selected = gets.to_i
+
+		def modify_option(user_selected)
+			case user_selected
+			when 1
+				#modify ID
+			when 2
+				#modify First Name
+			when 3
+				#modify Last Name
+			when 4
+				#modify email address
+			when 5
+				#modify note
+			when 6
+				puts "goodbye"
+				return
+			else
+				puts "Invalid option. Try again."
+				print_modify_menu
+			end
+		end
+
+		modify_option(user_selected)
+
 	end
 
 	def display_all_contacts
