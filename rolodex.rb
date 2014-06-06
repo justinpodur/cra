@@ -14,6 +14,10 @@ class Rolodex
 		@id +=1
 	end
 
+	def return_contact
+		return @contacts
+	end
+
 	def find_contact(selected_id)
 		@contacts.find {|contact| contact.id == selected_id}
 	end

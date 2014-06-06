@@ -90,6 +90,7 @@ class CRM
 		@rolodex.add_contact(contact)
 	end
 
+#Making my life easier by taking this out
 	# def print_modify_menu
 	# 	puts "Enter attribute to modify:"
 	# 	puts "[1] ID"
@@ -99,8 +100,6 @@ class CRM
 	# 	puts "[5] Note"
 	# 	puts "[6] exit"
 	# end
-
-
 
 	def modify_option
 		
@@ -126,6 +125,8 @@ class CRM
 
 		@rolodex.edit_contact(selected_id,modified_contact)
 
+
+#Similarly making life easier by removing this for now. 
 		# case user_selected
 		# 	when 1
 		# 		#modify ID
@@ -144,6 +145,7 @@ class CRM
 		# 		puts "Invalid option. Try again."
 		# 		print_modify_menu
 		# end
+
 	end
 
 	def modify_existing_contact
@@ -162,6 +164,7 @@ class CRM
 	end
 
 	def display_all_contacts
+		@rolodex.return_contact.each {|c| puts "You know this person: #{c.first_name} #{c.last_name} with email #{c.email}, who you are supposed to #{c.note}?" }
 	end
 
 	def display_contact
