@@ -18,13 +18,26 @@ def main_menu
 end
 
 def call_option(user_selected)
-	add_new_contact if user_selected == 1
-	modify_existing_contact if user_selected == 2
-	display_all_contacts if user_selected == 3
-	display_contact if user_selected == 4
-	display_attribute if user_selected == 5
-	delete_contact if user_selected == 6
-	exit_crm if user_selected == 7
+	case user_selected
+	when 1
+		add_new_contact
+	when 2
+		modify_existing_contact
+	when 3
+	display_all_contacts
+	when 4
+	display_contact
+	when 5
+	display_attribute
+	when 6
+	delete_contact
+	when 7
+		puts "Goodbye"
+		return
+	else
+		puts "Invalid option. Please try again."
+		main_menu
+	end
 end
 
 def add_new_contact
@@ -45,9 +58,6 @@ def display_attribute
 end
 
 def delete_contact
-end
-
-def exit
 end
 
 end
