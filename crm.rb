@@ -3,17 +3,16 @@ require_relative "rolodex"
 
 class CRM
 
-	attr_accessor :name
+	attr_accessor :name, :confirmed
 
 	def initialize(name)
 		self.name = name
+		@confirmed = 0
 	end
 
 	def self.run(name)
 		crm = CRM.new(name)
 		crm.main_menu
-		poo = crm.confirm
-		puts poo
 	end
 
 	def print_main_menu
@@ -57,16 +56,19 @@ class CRM
 	end
 
 	def confirm
-			puts "Are you sure? Type 1 if so, 0 if not:"
-			confirmation=gets.to_i
-			case confirmation
+
+		puts "Are you sure? Type 1 if so, 0 if not:"
+		
+		confirmation=gets.to_i
+		
+		case confirmation
 			when 1
 				return true
 			when 0
 				return false
-			else
-				puts "Please type 1 if so, 0 if not."
-			end
+			# else
+			# 	puts "Please type 1 if so, 0 if not."
+		end
 	end
 
 
@@ -95,7 +97,6 @@ class CRM
 	def modify_option(user_selected)
 		case user_selected
 			when 1
-				#confirm
 				#modify ID
 			when 2
 				#modify First Name
@@ -118,8 +119,17 @@ class CRM
 	
 		print_modify_menu
 		user_selected = gets.to_i
-		confirm
+		
+		if confirm
+			puts "here we go with modification"
+			modify_option(user_selected)
+		else
+			puts "Going back to main menu"
+			main_menu
+		end
+		
 		modify_option(user_selected)
+
 	end
 
 	def display_all_contacts
