@@ -4,6 +4,11 @@ class CRM
 		self.name=name
 	end
 
+	def self.run(name)
+		crm=CRM.new(name)
+		crm.main_menu
+	end
+	
 	attr_accessor :name
 
 	def print_main_menu
@@ -106,3 +111,5 @@ end
 a_crm_app = CRM.new("Bitmaker Labs CRM")
 a_crm_app.main_menu
 puts "Welcome to #{a_crm_app.name}"
+
+CRM.run("my CRM")
