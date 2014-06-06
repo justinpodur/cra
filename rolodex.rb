@@ -15,7 +15,7 @@ class Rolodex
 	end
 
 	def find_contact(selected_id)
-		@contacts.find {|c| contact.id == selected_id}
+		@contacts.find {|contact| contact.id == selected_id}
 	end
 
 	def edit_contact(id, new_contact)
