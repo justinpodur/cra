@@ -3,16 +3,18 @@ require_relative "rolodex"
 
 class CRM
 
+	attr_accessor :name
+
 	def initialize(name)
-		self.name=name
+		self.name = name
 	end
 
 	def self.run(name)
-		crm=CRM.new(name)
+		crm = CRM.new(name)
 		crm.main_menu
+		poo = crm.confirm
+		puts poo
 	end
-	
-	attr_accessor :name
 
 	def print_main_menu
 		puts "[1] Add new contact"
@@ -33,26 +35,40 @@ class CRM
 
 	def call_option(user_selected)
 		case user_selected
-		when 1
-			add_new_contact
-		when 2
-			modify_existing_contact
-		when 3
-		display_all_contacts
-		when 4
-		display_contact
-		when 5
-		display_attribute
-		when 6
-		delete_contact
-		when 7
-			puts "Goodbye"
-			return
-		else
-			puts "Invalid option. Please try again."
-			main_menu
+			when 1
+				add_new_contact
+			when 2
+				modify_existing_contact
+			when 3
+				display_all_contacts
+			when 4
+				display_contact
+			when 5
+				display_attribute
+			when 6
+				delete_contact
+			when 7
+				puts "Goodbye"
+				return
+			else
+				puts "Invalid option. Please try again."
+				main_menu
 		end
 	end
+
+	def confirm
+			puts "Are you sure? Type 1 if so, 0 if not:"
+			confirmation=gets.to_i
+			case confirmation
+			when 1
+				return true
+			when 0
+				return false
+			else
+				puts "Please type 1 if so, 0 if not."
+			end
+	end
+
 
 	def add_new_contact
 		puts "Enter First Name: "
@@ -66,24 +82,20 @@ class CRM
 		contact=Contact.new(first_name,last_name,email,note)
 	end
 
-	def modify_existing_contact
-		
-		def print_modify_menu
-			puts "Enter attribute to modify:"
-			puts "[1] ID"
-			puts "[2] First Name"
-			puts "[3] Last Name"
-			puts "[4] Email Address"
-			puts "[5] Note"
-			puts "[6] exit"
-		end
+	def print_modify_menu
+		puts "Enter attribute to modify:"
+		puts "[1] ID"
+		puts "[2] First Name"
+		puts "[3] Last Name"
+		puts "[4] Email Address"
+		puts "[5] Note"
+		puts "[6] exit"
+	end
 
-		print_modify_menu
-		user_selected = gets.to_i
-
-		def modify_option(user_selected)
-			case user_selected
+	def modify_option(user_selected)
+		case user_selected
 			when 1
+				#confirm
 				#modify ID
 			when 2
 				#modify First Name
@@ -99,11 +111,15 @@ class CRM
 			else
 				puts "Invalid option. Try again."
 				print_modify_menu
-			end
 		end
+	end
 
+	def modify_existing_contact
+	
+		print_modify_menu
+		user_selected = gets.to_i
+		confirm
 		modify_option(user_selected)
-
 	end
 
 	def display_all_contacts

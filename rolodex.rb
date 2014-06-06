@@ -25,7 +25,6 @@ class Rolodex
 			else
 				puts "Please type yes if so, no if not."
 			end
-
 		end
 
 
@@ -59,6 +58,7 @@ class Rolodex
 		def modify_option(user_selected)
 			case user_selected
 			when 1
+				#confirm
 				#modify ID
 			when 2
 				#modify First Name
@@ -78,5 +78,18 @@ class Rolodex
 		end
 
 		modify_option(user_selected)
+
+	def display_all_contacts
+	end
+
+	def display_contact
+	end
+
+	def display_attribute
+	end
+
+	def delete_contact
+	end
+	
 	end
 end
