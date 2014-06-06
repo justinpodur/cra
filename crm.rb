@@ -7,7 +7,7 @@ class CRM
 
 	def initialize(name)
 		self.name = name
-		@confirmed = 0
+		@rolodex = Rolodex.new
 	end
 
 	def self.run(name)
@@ -95,6 +95,10 @@ class CRM
 	end
 
 	def modify_option(user_selected)
+		puts "What is the ID of the user you seek?"
+		selected_id = gets.to_i
+		@rolodex.find_contact(selected_id)
+
 		case user_selected
 			when 1
 				#modify ID
