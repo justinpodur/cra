@@ -168,6 +168,10 @@ class CRM
 	end
 
 	def display_contact
+		puts "What is the ID of the user you seek?"
+		selected_id = gets.to_i
+		contact=@rolodex.find_contact(selected_id)
+		puts "Your contact is #{contact.first_name} #{contact.last_name} whose email is #{contact.email} and remember to #{contact.note}"
 	end
 
 	def display_attribute

@@ -1,7 +1,7 @@
 
 DOING
 
-    As a user, if 'display all' is typed, I am shown all of the contacts that exist.
+
     As a user, if 'display contact' is typed, I am shown a particular contact.
     As a user, if 'display attribute' is typed, I am prompted to enter an attribute so that I can see all of the contacts according to that attribute.
     As a user, if 'delete' is typed, I am prompted to enter an attribute value of the contact to be deleted.
@@ -22,3 +22,5 @@ DONE
     As a user, if 'yes' is typed, I am prompted to change 'id', 'firstname', 'lastname' and 'email'.
 
     As a user, when an attribute is entered, I am prompted to enter a new value for the attribute.
+
+    As a user, if 'display all' is typed, I am shown all of the contacts that exist.
