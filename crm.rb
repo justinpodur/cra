@@ -1,3 +1,5 @@
+class CRM
+
 def print_main_menu
 	puts "[1] Add new contact"
 	puts "[2] Modify an existing contact"
@@ -22,13 +24,15 @@ def call_option(user_selected)
 	display_contact if user_selected == 4
 	display_attribute if user_selected == 5
 	delete_contact if user_selected == 6
-	exit if user_selected == 7
+	exit_crm if user_selected == 7
 end
 
 def add_new_contact
+	puts "adding new contact"
 end
 
 def modify_existing_contact
+	puts "modifying"
 end
 
 def display_all_contacts
@@ -45,3 +49,8 @@ end
 
 def exit
 end
+
+end
+
+a_crm_app = CRM.new
+a_crm_app.main_menu
