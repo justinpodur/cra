@@ -164,7 +164,7 @@ class CRM
 	end
 
 	def display_all_contacts
-		@rolodex.return_contact.each {|c| puts "You know this person: #{c.first_name} #{c.last_name} with email #{c.email}, who you are supposed to #{c.note}?" }
+		@rolodex.return_contact.each {|c| puts "You know this person: ID: #{c.id} #{c.first_name} #{c.last_name} with email #{c.email}, who you are supposed to #{c.note}?" }
 	end
 
 	def display_contact
@@ -175,9 +175,24 @@ class CRM
 	end
 
 	def display_attribute
+		puts "Which contact's attribute?"
+		id=gets.chomp.to_i
+
+		puts "What attribute?"
+		puts "[1] First Name"
+		puts "[2] Last Name"
+		puts "[3] Email"
+		puts "[4] Note"
+
+		attribute=gets.chomp.to_i
+
+		@rolodex.display_attribute(attribute,id)
 	end
 
 	def delete_contact
+		puts "What is the ID of the user you seek?"
+		selected_id = gets.chomp.to_i
+		@rolodex.delete_contact(selected_id)
 	end
 
 end

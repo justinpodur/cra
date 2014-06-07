@@ -18,9 +18,30 @@ class Rolodex
 		return @contacts
 	end
 
+	def delete_contact(selected_id)
+		contact_index = @contacts.index(find_contact(selected_id))
+		#puts "#{@contacts[contact_index].first_name}"
+		puts @contacts[contact_index].class
+	end
+
 	def find_contact(selected_id)
 		@contacts.find {|contact| contact.id == selected_id}
 	end
+
+	def display_attribute(attribute,id)
+		contact_index = @contacts.index(find_contact(id))
+		if !contact_index
+			puts "Contact not found"
+		else
+			case attribute
+				when 1 then puts "#{@contacts[contact_index].first_name}"
+				when 2 then puts "#{@contacts[contact_index].last_name}"
+				when 3 then puts "#{@contacts[contact_index].email}"
+				when 4 then puts "#{@contacts[contact_index].note}"
+			end
+		end
+	end
+
 
 	def edit_contact(id, new_contact)
 		contact_index = @contacts.index(find_contact(id))
