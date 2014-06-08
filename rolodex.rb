@@ -21,7 +21,11 @@ class Rolodex
 	def delete_contact(selected_id)
 		contact_index = @contacts.index(find_contact(selected_id))
 		#puts "#{@contacts[contact_index].first_name}"
-		puts @contacts[contact_index].class
+		@contacts[contact_index].first_name = "deleted"
+		@contacts[contact_index].last_name = "deleted"
+		@contacts[contact_index].email = "deleted"
+		@contacts[contact_index].note = "deleted"
+		puts "Contact deleted. The ID remains, but the customer info is gone."
 	end
 
 	def find_contact(selected_id)

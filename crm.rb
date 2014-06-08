@@ -15,6 +15,7 @@ class CRM
 		crm.main_menu
 	end
 
+
 	def print_main_menu
 		puts "[1] Add new contact"
 		puts "[2] Modify an existing contact"
